@@ -53,11 +53,11 @@ resource "aws_internet_gateway" "app_gw" {
 
 # route table
 resource "aws_route_table" "app_route"{
-  vpc_id = "aws_vpc.app_vpc"
+  vpc_id = aws_vpc.app_vpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = "aws_internet_gateway.app_gw.id"
+    gateway_id = aws_internet_gateway.app_gw.id
   }
 
   tags = {
