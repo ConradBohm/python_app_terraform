@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd /home/ubuntu/app
+cd /home/ubuntu/appjs
 sudo npm install
-sudo npm start &
-exit
+sudo npm start

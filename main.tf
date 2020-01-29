@@ -11,7 +11,7 @@ resource "aws_vpc" "app_vpc" {
   }
 }
 
-# create subnet
+# create app subnet
 resource "aws_subnet" "app_subnet"{
   vpc_id = aws_vpc.app_vpc.id
   cidr_block = "10.0.0.0/24"
