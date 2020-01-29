@@ -24,7 +24,12 @@ resource "aws_internet_gateway" "app_gw" {
 module "app" {
   source = "./modules/app_tier"
   vpc_id = aws_vpc.app_vpc.id
-  gateway_id = aws_internet_gateway.app_gw.id  
+  gateway_id = aws_internet_gateway.app_gw.id
 }
 
 # Call module to create db tier
+module "db" {
+  source = "./modules/db_tier"
+  vpc_id = aws_vpc.app_vpc.id
+  app_security_group_id = module.app.app_security_group_id
+}

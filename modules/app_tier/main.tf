@@ -42,6 +42,13 @@ resource "aws_security_group" "app_security_cb" {
   }
 
 
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags = {
     Name = var.my_name
   }
@@ -84,5 +91,4 @@ resource "aws_instance" "app_instance" {
 # send templates.sh file
 data "template_file" "app_init" {
   template = "${file("./scripts/init_script.sh.tpl")}"
-
 }
