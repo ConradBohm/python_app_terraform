@@ -2,5 +2,5 @@
 
 cd /home/ubuntu/app
 sudo npm install
-sudo npm start
+sudo npm start &
 exit

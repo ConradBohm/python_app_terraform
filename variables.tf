@@ -7,5 +7,5 @@ variable "my_name" {
 #ami id variable
 variable "ami_id" {
   type = string
-  default = "ami-0455a9b1150fc160e"
+  default = "ami-08b6288b5a8be34df"
 }
