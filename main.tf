@@ -25,6 +25,7 @@ module "app" {
   source = "./modules/app_tier"
   vpc_id = aws_vpc.app_vpc.id
   gateway_id = aws_internet_gateway.app_gw.id
+  db_ip = module.db.db_ip
 }
 
 # Call module to create db tier

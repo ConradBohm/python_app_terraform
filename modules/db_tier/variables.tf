@@ -13,5 +13,5 @@ variable "app_security_group_id" {
 
 variable "ami_id" {
   type = string
-  default = "ami-03b2b2db49b0c1a0d"
+  default = "ami-051f9bffabaa7f4b5"
 }

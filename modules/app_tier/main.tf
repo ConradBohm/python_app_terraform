@@ -27,6 +27,14 @@ resource "aws_security_group" "app_security_cb" {
 
   ingress {
     # TLS (change to whatever ports you need)
+    from_port   = 27017
+    to_port     = 27017
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    # TLS (change to whatever ports you need)
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"
@@ -38,7 +46,7 @@ resource "aws_security_group" "app_security_cb" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["212.161.55.68/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
 
@@ -91,4 +99,8 @@ resource "aws_instance" "app_instance" {
 # send templates.sh file
 data "template_file" "app_init" {
   template = "${file("./scripts/init_script.sh.tpl")}"
+
+  vars = {
+    db_priv_ip = var.db_ip
+  }
 }

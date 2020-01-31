@@ -47,7 +47,7 @@ resource "aws_security_group" "db_sg" {
 resource "aws_instance" "db_instance" {
   ami = var.ami_id
   subnet_id = aws_subnet.db_subnet.id
-  vpc_security_group_ids = []
+  vpc_security_group_ids = [aws_security_group.db_sg.id]
   instance_type = "t2.micro"
   associate_public_ip_address = true
 
